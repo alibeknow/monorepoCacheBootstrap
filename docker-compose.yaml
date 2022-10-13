@@ -1,0 +1,36 @@
+version: '3.1'
+
+networks:
+  monitoring:
+    driver: bridge
+
+services:
+  postgres:
+    image: postgres
+    container_name: postgres
+    restart: always
+    environment:
+      POSTGRES_MULTIPLE_DATABASES: task
+      POSTGRES_PASSWORD: postgres
+      TZ: 'GMT'
+      PGTZ: 'GMT'
+    ports:
+      - '5432:5432'
+    expose:
+      - 27017
+    volumes:
+      - ../docker-postgresql-multiple-databases:/docker-entrypoint-initdb.d
+    networks:
+      - monitoring
+
+  rabbitmq:
+    image: rabbitmq:3.10-management-alpine
+    restart: always
+    ports:
+      - '5672:5672'
+      - '15672:15672'
+    expose:
+      - 5672
+      - 15672
+    networks:
+      - monitoring
