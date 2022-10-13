@@ -1,0 +1,42 @@
+{
+  "collection": "@nestjs/schematics",
+  "monorepo": true,
+  "projects": {
+    "account": {
+      "type": "application",
+      "root": "src/account",
+      "sourceRoot": "src/account",
+      "entryFile": "account/main",
+      "compilerOptions": {
+        "tsConfigPath": "./tsconfig.json"
+      }
+    },
+    "transaction": {
+      "type": "application",
+      "root": "src/transaction",
+      "sourceRoot": "src/transaction",
+      "entryFile": "transaction/main",
+      "compilerOptions": {
+        "tsConfigPath": "./tsconfig.json"
+      }
+    },
+    "gateway": {
+      "type": "application",
+      "root": "src/gateway",
+      "sourceRoot": "src/gateway",
+      "entryFile": "gateway/main",
+      "compilerOptions": {
+        "tsConfigPath": "./tsconfig.json"
+      }
+    },
+    "cache": {
+      "type": "application",
+      "root": "src/cache",
+      "sourceRoot": "src/cache",
+      "entryFile": "cache/main",
+      "compilerOptions": {
+        "tsConfigPath": "./tsconfig.json"
+      }
+    }
+  }
+}
